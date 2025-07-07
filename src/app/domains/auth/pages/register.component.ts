@@ -223,27 +223,10 @@ export class RegisterComponent implements OnInit {
       this.authService.register(request).subscribe({
         next: (response) => {
           console.log('Registration successful', response);
-          // Store token manually since service no longer handles it
-          localStorage.setItem('token', response.token);
-          
-          // Get user info using the email from the response
-          this.authService.getUserByEmail(response.userId).subscribe({
-            next: (userInfo) => {
-              console.log('User info:', userInfo);
-              this.successMessage = 'Cuenta creada exitosamente. Redirigiendo...';
-              setTimeout(() => {
-                this.router.navigate(['/dashboard']);
-              }, 2000);
-            },
-            error: (userError) => {
-              console.error('Error getting user info:', userError);
-              // Still show success and navigate even if user info fails
-              this.successMessage = 'Cuenta creada exitosamente. Redirigiendo...';
-              setTimeout(() => {
-                this.router.navigate(['/dashboard']);
-              }, 2000);
-            }
-          });
+          this.successMessage = 'Cuenta creada exitosamente. Redirigiendo al login...';
+          setTimeout(() => {
+            this.router.navigate(['/auth/login']);
+          }, 1000);
         },
         error: (error) => {
           console.error('Registration error', error);
