@@ -18,6 +18,12 @@
     <div class="dashboard-content">
       <h2>Dashboard</h2>
       <p>Aquí puedes gestionar tus finanzas.</p>
+
+      <!-- Formulario de bonos -->
+      <app-bond-form (bondCreated)="bondId = $event"></app-bond-form>
+
+      <!-- Tabla de cuotas -->
+      <app-bond-schedule *ngIf="bondId" [bondId]="bondId"></app-bond-schedule>
     </div>
   </main>
 </div>

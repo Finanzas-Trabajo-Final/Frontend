@@ -4,16 +4,19 @@ import { Router } from '@angular/router';
 import { AuthService } from '../domains/auth/services/auth.service';
 import { ButtonComponent } from '../shared/components/button.component';
 import { UserDto } from '../domains/auth/models/user-dto.model';
+import { BondFormComponent } from '../domains/bonds/components/bond-form.component';
+import { BondScheduleComponent } from '../domains/bonds/components/bond-schedule.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, ButtonComponent],
+  imports: [CommonModule, ButtonComponent, BondFormComponent, BondScheduleComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements OnInit {
   username: string = '';
+  bondId: number | null = null;
 
   constructor(
     private authService: AuthService,
@@ -28,7 +31,7 @@ export class DashboardComponent implements OnInit {
       try {
         const payload = JSON.parse(atob(token.split('.')[1]));
         const email = payload.sub || payload.email;
-        
+
         if (email) {
           this.authService.getUserByEmail(email).subscribe({
             next: (userInfo: UserDto) => {

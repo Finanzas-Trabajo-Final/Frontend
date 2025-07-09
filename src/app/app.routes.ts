@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { BondFormComponent } from './domains/bonds/components/bond-form.component';
+import { BondScheduleComponent } from './domains/bonds/components/bond-schedule.component';
 
 export const routes: Routes = [
   {
@@ -28,6 +30,14 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     loadComponent: () => import('./pages/dashboard.component').then(m => m.DashboardComponent)
+  },
+  {
+    path: 'bonds/form',
+    component: BondFormComponent
+  },
+  {
+    path: 'bonds/:id/schedule',
+    component: BondScheduleComponent
   },
   {
     path: '**',
