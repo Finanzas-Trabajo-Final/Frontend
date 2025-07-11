@@ -99,7 +99,7 @@ export class BondScheduleComponent implements OnChanges {
 
   ngOnChanges(): void {
     if (this.bondId) {
-      this.http.get<any[]>(`http://localhost:8080/api/v1/bonds/${this.bondId}/schedule`).subscribe(data => {
+      this.http.get<any[]>(`https://backend-wx5p.onrender.com/api/v1/bonds/${this.bondId}/schedule`).subscribe(data => {
         this.schedule = data;
       });
     }
