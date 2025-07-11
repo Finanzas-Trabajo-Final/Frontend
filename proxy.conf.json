@@ -1,0 +1,8 @@
+{
+  "/api/*": {
+    "target": "https://backend-wx5p.onrender.com",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
