@@ -8,7 +8,7 @@ import { UserDto } from '../models/user-dto.model';
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly apiUrl = 'http://localhost:8080/api/v1';
+  private readonly apiUrl = 'https://backend-wx5p.onrender.com/api/v1';
 
   constructor(private http: HttpClient) {}
 

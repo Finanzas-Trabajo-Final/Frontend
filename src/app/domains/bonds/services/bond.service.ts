@@ -7,7 +7,7 @@ import { Bond } from '../models/bond.model';
   providedIn: 'root'
 })
 export class BondService {
-  private baseUrl = 'http://localhost:8080/api/v1/bonds'; // Cambia esta URL cuando tengas el endpoint definitivo
+  private baseUrl = 'https://backend-wx5p.onrender.com/api/v1/bonds'; // Cambia esta URL cuando tengas el endpoint definitivo
 
   constructor(private http: HttpClient) {}
 
