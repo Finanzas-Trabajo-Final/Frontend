@@ -20,10 +20,9 @@
       <p>Aquí puedes gestionar tus finanzas.</p>
 
       <!-- Formulario de bonos -->
-      <app-bond-form (bondCreated)="bondId = $event"></app-bond-form>
+      <app-bond-form (bondCreatedEvent)="bondId = $event"></app-bond-form>
 
-      <!-- Tabla de cuotas -->
-      <app-bond-schedule *ngIf="bondId" [bondId]="bondId"></app-bond-schedule>
+      <!-- Tabla de cuotas (ya no es necesario aquí porque está integrado en el formulario) -->
     </div>
   </main>
 </div>

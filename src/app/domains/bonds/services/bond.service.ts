@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Bond } from '../models/bond.model';
+import { FinancialIndicators } from '../models/financial-indicators.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,9 @@ export class BondService {
       ...bond
     };
     return this.http.post(this.baseUrl, body);
+  }
+
+  getFinancialIndicators(bondId: number): Observable<FinancialIndicators> {
+    return this.http.get<FinancialIndicators>(`${this.baseUrl}/${bondId}/financial-indicators`);
   }
 }
