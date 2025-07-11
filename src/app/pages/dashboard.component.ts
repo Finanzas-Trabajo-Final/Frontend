@@ -5,12 +5,11 @@ import { AuthService } from '../domains/auth/services/auth.service';
 import { ButtonComponent } from '../shared/components/button.component';
 import { UserDto } from '../domains/auth/models/user-dto.model';
 import { BondFormComponent } from '../domains/bonds/components/bond-form.component';
-import { BondScheduleComponent } from '../domains/bonds/components/bond-schedule.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, ButtonComponent, BondFormComponent, BondScheduleComponent],
+  imports: [CommonModule, ButtonComponent, BondFormComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -54,5 +53,9 @@ export class DashboardComponent implements OnInit {
   logout(): void {
     localStorage.removeItem('token');
     this.router.navigate(['/auth/login']);
+  }
+
+  goToFaq(): void {
+    this.router.navigate(['/faq']);
   }
 }

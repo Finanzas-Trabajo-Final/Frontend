@@ -32,6 +32,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/dashboard.component').then(m => m.DashboardComponent)
   },
   {
+    path: 'faq',
+    loadComponent: () => import('./pages/faq.component').then(m => m.FaqComponent)
+  },
+  {
     path: 'bonds/form',
     component: BondFormComponent
   },

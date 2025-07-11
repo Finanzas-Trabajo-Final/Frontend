@@ -2,14 +2,22 @@
   <header class="dashboard-header">
     <div class="header-content">
       <h1>Dashboard - AmericaCash</h1>
-      <div class="user-info">
-        <span>Bienvenido {{ username || 'Usuario' }}</span>
-        <app-button
-          variant="outline"
-          (clickEvent)="logout()"
-        >
-          Cerrar Sesión
-        </app-button>
+      <div class="header-actions">
+        <div class="user-info">
+          <span>Bienvenido {{ username || 'Usuario' }}</span>
+          <app-button
+            variant="outline"
+            (clickEvent)="goToFaq()"
+          >
+            Preguntas Frecuentes
+          </app-button>
+          <app-button
+            variant="outline"
+            (clickEvent)="logout()"
+          >
+            Cerrar Sesión
+          </app-button>
+        </div>
       </div>
     </div>
   </header>
